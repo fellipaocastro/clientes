@@ -1,4 +1,4 @@
-package io.github.fellipecastro;
+package io.github.fellipecastro.clientes;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
