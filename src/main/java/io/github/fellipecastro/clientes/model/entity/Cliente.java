@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Entity
 @Data
-public class Client {
+public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -18,6 +18,6 @@ public class Client {
     @Column(nullable = false, length = 11)
     private String cpf;
 
-    @Column
+    @Column(name = "data_cadastro")
     private LocalDate dataCadastro;
 }
