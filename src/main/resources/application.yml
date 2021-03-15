@@ -1,3 +1,7 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /sistema-clientes
 spring:
   profiles:
     active: development
@@ -17,7 +21,3 @@ spring:
     console:
       enabled: true
       path: /h2-console
-server:
-  port: 8081
-  servlet:
-    context-path: /sistema-clientes
