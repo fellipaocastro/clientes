@@ -8,11 +8,6 @@
     <artifactId>clientes</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
-<!--        <maven.compiler.source>15</maven.compiler.source>-->
-        <maven.compiler.target>15</maven.compiler.target>
-    </properties>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
