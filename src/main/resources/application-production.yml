@@ -1,3 +1,9 @@
 spring:
   application:
     name: Sistema de Vendas - Produção
+  datasource:
+    hikari:
+      jdbc-url: ${JDBC_DATABASE_URL}
+      driver-class-name: org.postgresql.Driver
+      username: ${JDBC_DATABASE_USERNAME}
+      password: ${JDBC_DATABASE_PASSWORD}
