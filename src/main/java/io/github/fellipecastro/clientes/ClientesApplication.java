@@ -13,7 +13,7 @@ public class ClientesApplication {
     @Bean
     public CommandLineRunner run(@Autowired ClienteRepository repository){
         return args -> {
-            Cliente cliente = Cliente.builder().cpf("00000000000").nome("Fulano").build();
+            Cliente cliente = Cliente.builder().cpf("84727527987").nome("Fulano").build();
             repository.save(cliente);
         };
     }
