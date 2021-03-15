@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/clientes")
 public class ClienteController {
@@ -30,16 +32,9 @@ public class ClienteController {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
-    @DeleteMapping("{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deletar(@PathVariable Integer id){
-        repository
-                .findById(id)
-                .map(cliente -> {
-                    repository.delete(cliente);
-                    return Void.TYPE;
-                })
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    @GetMapping
+    public List<Cliente> listar(){
+        return repository.findAll();
     }
 
     @PutMapping("{id}")
@@ -50,6 +45,18 @@ public class ClienteController {
                 .map(cliente -> {
                     clienteAtualizado.setId(cliente.getId());
                     return repository.save(clienteAtualizado);
+                })
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletar(@PathVariable Integer id){
+        repository
+                .findById(id)
+                .map(cliente -> {
+                    repository.delete(cliente);
+                    return Void.TYPE;
                 })
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
