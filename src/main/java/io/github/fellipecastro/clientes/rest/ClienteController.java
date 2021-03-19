@@ -37,8 +37,7 @@ public class ClienteController {
 
     @GetMapping
     public List<Cliente> obterTodos(){
-//        return repository.findAll(Sort.by(Sort.Direction.DESC, "data_cadastro"));
-        return repository.findAll();
+        return repository.findAll(Sort.by(Sort.Direction.DESC, "dataCadastro"));
     }
 
     @PutMapping("{id}")
