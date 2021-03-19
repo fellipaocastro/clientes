@@ -35,7 +35,7 @@ public class ClienteController {
     }
 
     @GetMapping
-    public List<Cliente> listar(){
+    public List<Cliente> obterTodos(){
         return repository.findAll();
     }
 
