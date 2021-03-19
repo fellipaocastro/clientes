@@ -3,6 +3,7 @@ package io.github.fellipecastro.clientes.rest;
 import io.github.fellipecastro.clientes.model.entity.Cliente;
 import io.github.fellipecastro.clientes.model.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -36,7 +37,7 @@ public class ClienteController {
 
     @GetMapping
     public List<Cliente> obterTodos(){
-        return repository.findAll();
+        return repository.findAll(Sort.by(Sort.Direction.DESC, "data_cadastro"));
     }
 
     @PutMapping("{id}")
