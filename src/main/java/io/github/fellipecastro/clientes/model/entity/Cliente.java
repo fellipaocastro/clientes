@@ -1,16 +1,15 @@
 package io.github.fellipecastro.clientes.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import java.time.LocalDateTime;
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CPF;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -18,25 +17,26 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class Cliente {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
 
-    @Column(nullable = false, length = 150)
-    @NotEmpty(message = "{campo.nome.obrigatorio}")
-    private String nome;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
 
-    @Column(nullable = false, length = 11)
-    @NotNull(message = "{campo.cpf.obrigatorio}")
-    @CPF(message = "{campo.cpf.invalido}")
-    private String cpf;
+  @Column(nullable = false, length = 150)
+  @NotEmpty(message = "{campo.nome.obrigatorio}")
+  private String nome;
 
-    @Column(name = "data_cadastro", updatable = false)
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
-    private LocalDateTime dataCadastro;
+  @Column(nullable = false, length = 11)
+  @NotNull(message = "{campo.cpf.obrigatorio}")
+  @CPF(message = "{campo.cpf.invalido}")
+  private String cpf;
 
-    @PrePersist
-    public void prePersist(){
-        setDataCadastro(LocalDateTime.now());
-    }
+  @Column(name = "data_cadastro", updatable = false)
+  @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+  private LocalDateTime dataCadastro;
+
+  @PrePersist
+  public void prePersist() {
+    setDataCadastro(LocalDateTime.now());
+  }
 }

@@ -5,8 +5,10 @@ import org.springframework.context.annotation.Bean;
 
 @Development
 public class Config {
-    @Bean
-    public CommandLineRunner executar(){
-        return args -> System.out.println("RODANDO A CONFIGURAÇÃO DE DESENVOLVIMENTO");
-    }
+
+  @Bean
+  public CommandLineRunner executar() {
+    return args ->
+      System.out.println("RODANDO A CONFIGURAÇÃO DE DESENVOLVIMENTO");
+  }
 }
